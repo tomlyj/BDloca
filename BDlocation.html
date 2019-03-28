@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="百度地图,百度地图API，百度地图自定义工具，百度地图所见即所得工具" />
     <meta name="description" content="百度地图API自定义地图，帮助用户在可视化操作下生成百度地图" />
-    <title>百度地图API自定义地图</title>
+    <title>华师</title>
     <!--引用百度地图API-->
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qgVgAZQGxZw9yy72hinrA2x6skX0wOju"></script>
   </head>
@@ -12,9 +12,29 @@
   <body>
     <!--百度地图容器-->
     <div style="width:700px;height:550px;border:#ccc solid 1px;font-size:12px" id="map"></div>
-    <p style="color:red;font-weight:600">地图生成工具基于百度地图JS api v2.0版本开发，使用请申请密匙。
-      <a href="http://developer.baidu.com/map/index.php?title=jspopular/guide/introduction" style="color:#2f83c7" target="_blank">了解如何申请密匙</a>
-      <a href="http://lbsyun.baidu.com/apiconsole/key?application=key" style="color:#2f83c7" target="_blank">申请密匙</a>
+    <p style="color:red;font-weight:600">华师校园
+      <p id="demo">经纬度位置</p>
+<button onclick="getLocation()">自身定位</button>
+<script>
+var x=document.getElementById("demo");
+function getLocation()
+{
+	if (navigator.geolocation)
+	{
+		navigator.geolocation.getCurrentPosition(showPosition);
+	}
+	else
+	{
+		x.innerHTML="¸Ãä¯ÀÀÆ÷²»Ö§³Ö»ñÈ¡µØÀíÎ»ÖÃ¡£";
+	}
+}
+
+function showPosition(position)
+{
+	x.innerHTML="纬度: " + position.coords.latitude + 
+	"经度: " + position.coords.longitude;	
+}
+</script>
     </p>
   </body>
   <script type="text/javascript">
@@ -81,5 +101,6 @@
     }
     var map;
       initMap();
+   
   </script>
 </html>
